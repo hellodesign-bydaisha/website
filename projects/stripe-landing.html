@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stripe Landing Page - Daisha Overstreet</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .project-detail {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .project-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .project-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .project-header p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: var(--text-primary);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    .project-images {
+      display: grid;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .image-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .image-section h2 {
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .image-section img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-note {
+      background: rgba(100, 181, 255, 0.08);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.5rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 768px) {
+      .project-detail {
+        padding: 1rem;
+      }
+
+      .project-header h1 {
+        font-size: 2rem;
+      }
+
+      .project-header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="../index.html" class="name">Daisha Overstreet</a>
+      </div>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../blog/post1.html">Blog</a>
+        <a href="../projects.html" class="active">Projects</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="project-detail">
+      <a href="../projects.html" class="back-link">← Back to Projects</a>
+      
+      <div class="project-header">
+        <h1>Stripe Landing Page</h1>
+        <p>A landing page design recreation that accurately mirrors Stripe's established branding guidelines and layout patterns from their original design system. This exercise focused on maintaining visual consistency with their brand identity while demonstrating attention to detail in UI implementation.</p>
+        <div class="project-tags">
+          <span class="tag">Web Design</span>
+          <span class="tag">UI Design</span>
+          <span class="tag">Brand Recreation</span>
+        </div>
+        <div class="project-note">
+          <strong>Note:</strong> This is an archived design exercise. Interactive elements appear in a disabled state as the project is no longer actively maintained.
+        </div>
+      </div>
+
+      <div class="project-images">
+        <div class="image-section">
+          <h2>Landing Page Design</h2>
+          <img src="../images/Stripe Desktop Landing Page.png" alt="Stripe Landing Page Desktop View">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; <span id="year">2025</span> Daisha Overstreet. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="https://www.threads.net" target="_blank" rel="noopener noreferrer">Threads</a>
+        <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer">Pinterest</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>

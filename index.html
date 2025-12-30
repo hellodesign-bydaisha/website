@@ -5,8 +5,195 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Website by Daisha</title>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Mood Check-in Gate */
+      .mood-gate {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(6, 10, 22, 0.97);
+        backdrop-filter: blur(10px);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+      }
+
+      .mood-gate.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .mood-gate-content {
+        max-width: 500px;
+        padding: 3rem 2rem;
+        text-align: center;
+        animation: fadeInUp 0.6s ease;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .mood-gate h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .mood-gate-subtitle {
+        color: var(--muted);
+        margin-bottom: 2.5rem;
+        font-size: 1rem;
+      }
+
+      .mood-options {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .mood-option {
+        background: rgba(255, 255, 255, 0.03);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        padding: 1.2rem 1.5rem;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: var(--text);
+        font-size: 1.1rem;
+        font-weight: 500;
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+      }
+
+      .mood-option::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(100, 181, 255, 0.1), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .mood-option:hover {
+        border-color: var(--accent);
+        background: rgba(100, 181, 255, 0.08);
+        transform: translateY(-2px);
+      }
+
+      .mood-option:hover::before {
+        left: 100%;
+      }
+
+      .mood-option.selected {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: white;
+        box-shadow: 0 8px 24px rgba(100, 181, 255, 0.3);
+      }
+
+      .mood-emoji {
+        margin-right: 0.8rem;
+        font-size: 1.3rem;
+      }
+
+      .enter-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.3);
+        padding: 1rem 3rem;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: not-allowed;
+        transition: all 0.3s ease;
+        width: 100%;
+      }
+
+      .enter-btn.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 4px 16px rgba(100, 181, 255, 0.4);
+      }
+
+      .enter-btn.active:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(100, 181, 255, 0.5);
+      }
+
+      @media (max-width: 600px) {
+        .mood-gate-content {
+          padding: 2rem 1.5rem;
+        }
+
+        .mood-gate h2 {
+          font-size: 1.6rem;
+        }
+
+        .mood-option {
+          padding: 1rem;
+          font-size: 1rem;
+        }
+      }
+    </style>
   </head>
   <body>
+    <!-- Mood Check-in Gate -->
+    <div class="mood-gate" id="moodGate">
+      <div class="mood-gate-content">
+        <h2>Welcome to By Daisha</h2>
+        <p class="mood-gate-subtitle">How are we feeling today?</p>
+        <p style="color: var(--muted); max-width: 500px; margin: 0 auto 1rem; line-height: 1.6; font-size: 0.95rem;">
+          In a world that moves at lightning speed, pausing to check in with yourself isn't just self-care—it's radical. 
+          Your emotional state is valid, ever-changing, and worth acknowledging. Take this moment to honor where you are right now.
+        </p>
+        <p style="color: var(--accent); max-width: 500px; margin: 0 auto 2rem; line-height: 1.6; font-size: 1rem; font-weight: 500;">
+          Before you enter my world, check in with yours first.
+        </p>
+        
+        <div class="mood-options">
+          <div class="mood-option" data-mood="thriving">
+            <span class="mood-emoji">🌟</span>Thriving / Unbothered
+          </div>
+          <div class="mood-option" data-mood="locked-in">
+            <span class="mood-emoji">🎯</span>Locked In / Focused
+          </div>
+          <div class="mood-option" data-mood="main-character">
+            <span class="mood-emoji">💅</span>Main Character Energy
+          </div>
+          <div class="mood-option" data-mood="chaotic">
+            <span class="mood-emoji">🌀</span>Chaotic (but cute)
+          </div>
+          <div class="mood-option" data-mood="surviving">
+            <span class="mood-emoji">☕</span>Just Vibing / Surviving
+          </div>
+          <div class="mood-option" data-mood="im-here">
+            <span class="mood-emoji">😵‍💫</span>I'm here
+          </div>
+        </div>
+
+        <button class="enter-btn" id="enterBtn" disabled>Enter Site</button>
+      </div>
+    </div>
+
     <header class="site-header">
       <div class="container">
         <div class="name">by Daisha</div>
@@ -192,6 +379,48 @@
                   <div class="card-body"><h4>Rebecca Allen Inc.</h4><div class="meta">Brand Design • 2021</div><p class="summary">Visual content and product photography for a footwear brand celebrating women of color.</p></div>
                 </a>
               </article>
+
+              <article class="card">
+                <a href="projects/interactive-tabbed-interface.html">
+                  <div class="thumb"><video src="videos/Interactive Tabbed Interface Function Video.mp4" autoplay loop muted playsinline></video></div>
+                  <div class="card-body"><h4>Interactive Tabbed Interface</h4><div class="meta">UI/UX Design • 2024</div><p class="summary">Custom tabbed navigation interface with smooth transitions and interactive functionality.</p></div>
+                </a>
+              </article>
+
+              <article class="card">
+                <a href="projects/splashgiving-2022.html">
+                  <div class="thumb"><video src="videos/Splashgiving 2022 Function Video.mp4" autoplay loop muted playsinline></video></div>
+                  <div class="card-body"><h4>Splashgiving 2022</h4><div class="meta">Event Design • 2022</div><p class="summary">Interactive holiday event landing page with custom animations and festive design elements.</p></div>
+                </a>
+              </article>
+
+              <article class="card">
+                <a href="projects/yoga-dluna.html">
+                  <div class="thumb"><img src="images/Yoga D'Luna Landing Page.png" alt="Yoga D'Luna" style="object-fit: cover;"/></div>
+                  <div class="card-body"><h4>Yoga D'Luna</h4><div class="meta">Brand & Web Design • 2024</div><p class="summary">Complete brand identity and landing page design for a yoga and wellness studio.</p></div>
+                </a>
+              </article>
+
+              <article class="card">
+                <a href="projects/stripe-landing.html">
+                  <div class="thumb"><img src="images/Stripe Desktop Landing Page.png" alt="Stripe Landing Page"/></div>
+                  <div class="card-body"><h4>Stripe Landing Page</h4><div class="meta">Web Design • 2023</div><p class="summary">Landing page design recreation matching Stripe's established branding and layout patterns.</p></div>
+                </a>
+              </article>
+
+              <article class="card">
+                <a href="projects/quad.html">
+                  <div class="thumb"><img src="images/Quad Desktop Event Registration Template Landing Page.png" alt="Quad Event Registration"/></div>
+                  <div class="card-body"><h4>Quad Event Registration</h4><div class="meta">Web Design • 2023</div><p class="summary">Complete event registration template with responsive design across desktop and mobile.</p></div>
+                </a>
+              </article>
+
+              <article class="card">
+                <a href="projects/block-mock-splash.html">
+                  <div class="thumb"><img src="images/Block Mock Splash Hub Theme Desktop.png" alt="Block Mock Splash Hub"/></div>
+                  <div class="card-body"><h4>Block Mock Splash Hub</h4><div class="meta">Web Design • 2023</div><p class="summary">Event hub platform design with comprehensive style guide and responsive templates.</p></div>
+                </a>
+              </article>
               </div>
             </div>
           </section>
@@ -209,5 +438,61 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+      // Mood Gate Functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('Mood gate script loaded');
+        const moodGate = document.getElementById('moodGate');
+        const moodOptions = document.querySelectorAll('.mood-option');
+        const enterBtn = document.getElementById('enterBtn');
+        let selectedMood = null;
+
+        console.log('Found elements:', {
+          moodGate: !!moodGate,
+          moodOptions: moodOptions.length,
+          enterBtn: !!enterBtn
+        });
+
+        // Handle mood selection
+        moodOptions.forEach(option => {
+          option.addEventListener('click', function() {
+            console.log('Mood option clicked:', option.dataset.mood);
+            
+            // Remove selected class from all options
+            moodOptions.forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            option.classList.add('selected');
+            selectedMood = option.dataset.mood;
+            
+            // Enable enter button
+            enterBtn.disabled = false;
+            enterBtn.classList.add('active');
+            console.log('Enter button enabled');
+          });
+        });
+
+        // Handle enter button click
+        enterBtn.addEventListener('click', function() {
+          console.log('Enter button clicked, selectedMood:', selectedMood);
+          if (selectedMood) {
+            // Add fade out animation
+            moodGate.classList.add('hidden');
+            
+            // Remove from DOM after animation
+            setTimeout(() => {
+              moodGate.style.display = 'none';
+            }, 500);
+
+            // Optional: Log mood for future analytics
+            console.log('Today\'s mood:', selectedMood);
+            
+            // TODO: Store in localStorage for once-a-day check
+            // localStorage.setItem('lastMoodCheck', new Date().toDateString());
+            // localStorage.setItem('currentMood', selectedMood);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
