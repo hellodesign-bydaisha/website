@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rebecca Allen Inc. - Daisha Overstreet</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .project-detail {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .project-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .project-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .project-header p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: var(--text-primary);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    .project-images {
+      display: grid;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .image-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .image-section h2 {
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .image-section img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 768px) {
+      .project-detail {
+        padding: 1rem;
+      }
+
+      .project-header h1 {
+        font-size: 2rem;
+      }
+
+      .project-header p {
+        font-size: 1rem;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="../index.html" class="name">Daisha Overstreet</a>
+      </div>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../blog/post1.html">Blog</a>
+        <a href="../projects.html" class="active">Projects</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="project-detail">
+      <a href="../projects.html" class="back-link">← Back to Projects</a>
+      
+      <div class="project-header">
+        <h1>Rebecca Allen Inc.</h1>
+        <p>Visual content development and product photography for a footwear brand centered on women of color. Partnered with founders to support the launch of their inaugural collection through compelling visual storytelling and brand imagery.</p>
+        <div class="project-tags">
+          <span class="tag">Brand Design</span>
+          <span class="tag">Photography</span>
+          <span class="tag">Content Creation</span>
+          <span class="tag">Product Photography</span>
+        </div>
+      </div>
+
+      <div class="project-images">
+        <div class="image-section">
+          <h2>Line Work</h2>
+          <img src="../images/Rebecca Allen Inc., Line Work.png" alt="Line Work">
+        </div>
+
+        <div class="image-section">
+          <h2>Graphics & Text</h2>
+          <div class="image-grid">
+            <img src="../images/Rebecca Allen Inc., 70s Graphic.png" alt="70s Graphic">
+            <img src="../images/Rebecca Allen Inc., Text Graphic 1.png" alt="Text Graphic 1">
+            <img src="../images/Rebecca Allen Inc., Text Graphic 2.png" alt="Text Graphic 2">
+            <img src="../images/Rebecca Allen Inc., Text Graphic 3.png" alt="Text Graphic 3">
+            <img src="../images/Rebecca Allen Inc., Text Graphic 4.png" alt="Text Graphic 4">
+            <img src="../images/Rebecca Allen Inc., Text Graphic 5.png" alt="Text Graphic 5">
+          </div>
+        </div>
+
+        <div class="image-section">
+          <h2>Mask Designs</h2>
+          <div class="image-grid">
+            <img src="../images/Rebecca Allen Inc., Mask 1.png" alt="Mask Design 1">
+            <img src="../images/Rebecca Allen Inc., Mask 2.png" alt="Mask Design 2">
+            <img src="../images/Rebecca Allen Inc., Mask 3.png" alt="Mask Design 3">
+            <img src="../images/Rebecca Allen Inc., Mask Pattern.png" alt="Mask Pattern">
+          </div>
+        </div>
+
+        <div class="image-section">
+          <h2>Product Photography</h2>
+          <div class="image-grid">
+            <img src="../images/Rebecca Allen Inc., Product Photo 1.png" alt="Product Photo 1">
+            <img src="../images/Rebecca Allen Inc., Product Photo 2.png" alt="Product Photo 2">
+            <img src="../images/Rebecca Allen Inc., Product Photo 3.png" alt="Product Photo 3">
+            <img src="../images/Rebecca Allen Inc., Product Photo 4.png" alt="Product Photo 4">
+            <img src="../images/Rebecca Allen Inc., Product Photo 5.png" alt="Product Photo 5">
+            <img src="../images/Rebecca Allen Inc., Product Photo 6.png" alt="Product Photo 6">
+            <img src="../images/Rebecca Allen Inc., Product Photo 7.png" alt="Product Photo 7">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; <span id="year">2025</span> Daisha Overstreet. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="https://www.threads.net" target="_blank" rel="noopener noreferrer">Threads</a>
+        <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer">Pinterest</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>

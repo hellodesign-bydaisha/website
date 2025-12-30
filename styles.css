@@ -134,9 +134,9 @@ main section:last-child, aside section:last-child { margin-bottom: 0; }
 }
 
 @media (max-width:600px){
-  .projects-grid{grid-template-columns:1fr;gap:1rem}
+  .projects-grid{grid-template-columns:repeat(2,1fr);gap:0.75rem}
 }
-.card{background:var(--card);padding:1rem;border:1px solid var(--glass-border);box-shadow:0 6px 24px rgba(11,17,32,0.04);border-radius:var(--radius);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;max-width:280px}
+.card{background:var(--card);padding:0.5rem;border:1px solid var(--glass-border);box-shadow:0 6px 24px rgba(11,17,32,0.04);border-radius:var(--radius);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;max-width:100%;width:100%}
 .card h4{margin:0 0 var(--text-gap);font-weight:600;letter-spacing:0.01em}
 .card .meta{font-size:0.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:var(--text-gap)}
 .card .summary{color:var(--muted);font-size:0.98rem;line-height:1.6;margin-bottom:var(--text-gap)}
@@ -613,9 +613,10 @@ section#new-content h3{margin-top:0;margin-bottom:var(--heading-gap);color:var(-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  padding: 2rem;
+  padding: 0;
   max-width: 1200px;
   margin: 0 auto;
+  align-items: start;
 }
 
 .project-card {
@@ -637,23 +638,12 @@ section#new-content h3{margin-top:0;margin-bottom:var(--heading-gap);color:var(-
 
 .project-image {
   width: 100%;
-  height: 250px;
-  background-size: cover;
+  height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
-  background-color: rgba(100, 181, 255, 0.1);
+  background-color: transparent;
   transition: all 0.3s ease;
-}
-
-/* Landscape images (16:9 aspect ratio) */
-.project-card.landscape .project-image {
-  aspect-ratio: 16/9;
-  height: auto;
-}
-
-/* Portrait images (9:16 aspect ratio) */
-.project-card.portrait .project-image {
-  aspect-ratio: 9/16;
-  height: auto;
 }
 
 .project-card:hover .project-image {
@@ -674,7 +664,7 @@ section#new-content h3{margin-top:0;margin-bottom:var(--heading-gap);color:var(-
 }
 
 .project-info p {
-  margin-bottom: var(--section-gap);
+  margin-bottom: 1rem;
   color: var(--muted);
   flex-grow: 1;
 }
