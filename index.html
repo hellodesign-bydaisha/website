@@ -153,6 +153,132 @@
           font-size: 1rem;
         }
       }
+
+      /* Make it Rain Button */
+      .profile-wrap {
+        position: relative;
+      }
+
+      .rain-btn {
+        position: absolute;
+        right: -80px;
+        top: 100px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        color: white;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.65rem;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 20px;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+        transition: all 0.3s ease;
+        letter-spacing: 0.03em;
+        text-transform: lowercase;
+        z-index: 10000;
+        opacity: 0;
+        visibility: hidden;
+        white-space: nowrap;
+        transition: opacity 0.5s ease 0.5s, visibility 0s 1s;
+      }
+
+      .rain-btn.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .rain-btn-left {
+        display: none;
+      }
+
+      .rain-btn-right {
+        position: absolute;
+        right: -80px;
+        top: 100px;
+      }
+
+      .rain-btn:hover {
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.6);
+        transform: scale(1.08);
+      }
+
+      /* Snow Container */
+      .rain-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9998;
+        overflow: hidden;
+      }
+
+      .page-dim {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 9997;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .page-dim.active {
+        opacity: 1;
+      }
+
+      .snowflake {
+        position: absolute;
+        font-size: 1.5rem;
+        color: white;
+        opacity: 0;
+        animation: snowFall 8s linear forwards;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(200, 230, 255, 0.6);
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+      }
+
+      @keyframes snowFall {
+        0% {
+          top: -50px;
+          opacity: 0;
+          transform: translateX(0) rotate(0deg);
+        }
+        10% {
+          opacity: 0.9;
+        }
+        90% {
+          opacity: 0.9;
+        }
+        100% {
+          top: 100vh;
+          opacity: 0;
+          transform: translateX(var(--drift)) rotate(360deg);
+        }
+      }
+
+      @keyframes gentleSwing {
+        0%, 100% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(20px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .rain-btn-right {
+          right: -75px;
+          font-size: 0.6rem;
+          padding: 0.4rem 0.7rem;
+        }
+        .snowflake {
+          font-size: 1.2rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -208,8 +334,14 @@
       </div>
     </header>
 
+    <!-- Snow Container -->
+    <div class="page-dim" id="pageDim"></div>
+    <div class="rain-container" id="rainContainer"></div>
+
     <main>
       <div class="profile-wrap container">
+        <!-- Snow Day Button -->
+        <button class="rain-btn rain-btn-right" id="rainBtnRight">snow day? ❄️</button>
         <aside class="main-content-left">
           <div class="profile">
             <div class="profile-pic animated-profile">
@@ -482,6 +614,12 @@
             // Remove from DOM after animation
             setTimeout(() => {
               moodGate.style.display = 'none';
+              
+              // Show snow day button after mood gate is gone
+              const snowBtn = document.getElementById('rainBtnRight');
+              if (snowBtn) {
+                snowBtn.classList.add('show');
+              }
             }, 500);
 
             // Optional: Log mood for future analytics
@@ -493,6 +631,85 @@
           }
         });
       });
+
+      // Snow Day Functionality
+      const rainBtnRight = document.getElementById('rainBtnRight');
+      const rainContainer = document.getElementById('rainContainer');
+      const pageDim = document.getElementById('pageDim');
+      
+      const snowflakes = ['❄', '❅', '❆', '⛄', '☃️', '🌨️', '⛷️', '🎿', '🧤', '🩵', '🌧️', '🌬️', '☔️', '🥶', '🧊'];
+      
+      let isSnowing = false;
+      let snowInterval;
+
+      function makeItSnow() {
+        if (isSnowing) return;
+        isSnowing = true;
+
+        // Dim the page
+        if (pageDim) {
+          pageDim.classList.add('active');
+        }
+
+        // Create continuous snowfall for 20 seconds
+        const duration = 20000; // 20 seconds
+        const startTime = Date.now();
+
+        snowInterval = setInterval(() => {
+          if (Date.now() - startTime > duration) {
+            clearInterval(snowInterval);
+            // Remove dim after snow stops
+            setTimeout(() => {
+              if (pageDim) {
+                pageDim.classList.remove('active');
+              }
+              isSnowing = false;
+            }, 8000); // Wait for last snowflakes to fall
+            return;
+          }
+
+          // Create 2-3 snowflakes at a time
+          const count = Math.floor(Math.random() * 2) + 2;
+          for (let i = 0; i < count; i++) {
+            createSnowflake();
+          }
+        }, 150); // Create new snowflakes every 150ms
+      }
+
+      function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.textContent = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+        
+        // Random positioning
+        snowflake.style.left = Math.random() * 100 + '%';
+        
+        // Random size
+        const size = Math.random() * 1.5 + 0.8;
+        snowflake.style.fontSize = size + 'rem';
+        
+        // Random drift for horizontal movement
+        const drift = (Math.random() - 0.5) * 100;
+        snowflake.style.setProperty('--drift', drift + 'px');
+        
+        // Random animation duration (slower = more realistic)
+        const duration = Math.random() * 4 + 6; // 6-10 seconds
+        snowflake.style.animationDuration = duration + 's';
+        
+        // Random delay
+        snowflake.style.animationDelay = Math.random() * 0.5 + 's';
+        
+        rainContainer.appendChild(snowflake);
+        
+        // Remove snowflake after animation
+        setTimeout(() => {
+          snowflake.remove();
+        }, (duration + 0.5) * 1000);
+      }
+      
+      if (rainBtnRight) {
+        rainBtnRight.addEventListener('click', makeItSnow);
+      }
     </script>
   </body>
 </html>
