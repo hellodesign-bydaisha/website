@@ -1,0 +1,21 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# System files
+.placeholder
+
+# Optional: exclude large image assets (uncomment if desired)
+# images/*.jpg
+# images/*.png
+# images/*.gif
+# images/*.heic
+
+# Node modules (if using any)
+node_modules/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo

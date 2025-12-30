@@ -1,0 +1,6 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">Daisha logo</title>
+  <rect width="120" height="120" rx="20" fill="#0b1220" />
+  <circle cx="60" cy="44" r="22" fill="#64b5ff" />
+  <text x="60" y="78" font-family="Helvetica,Arial,sans-serif" font-size="34" fill="#e6eef8" text-anchor="middle" font-weight="700">D</text>
+</svg>

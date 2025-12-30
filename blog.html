@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Daisha Overstreet</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html" class="name">Daisha Overstreet</a>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="projects.html">Projects</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="blog-header">
+      <h1>Blog</h1>
+      <p>Thoughts on design, fashion, and the creative process</p>
+    </div>
+
+    <section class="blog-gallery">
+      <article class="blog-card">
+        <div class="blog-card-image">
+          <img src="images/blog-hero.png" alt="Finding Quiet in Process" />
+        </div>
+        <div class="blog-card-content">
+          <h2>Finding Quiet in Process</h2>
+          <div class="blog-card-meta">
+            <span class="blog-date">December 29, 2025</span>
+            <span class="blog-read-time">5 min read</span>
+          </div>
+          <p class="blog-card-excerpt">There's a particular kind of stillness that happens when you're deep in the work—not the kind that looks serene from the outside, but the kind that's noisy with intention. It's the sound of scissors against fabric. The scratch of a pencil. The small, decisive click of a mouse. These are the sounds I'm chasing lately.</p>
+          <a href="blog/post1.html" class="blog-card-link">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-image">
+          <img src="images/blog-hero.png" alt="The Intersection of Form and Function" />
+        </div>
+        <div class="blog-card-content">
+          <h2>The Intersection of Form and Function</h2>
+          <div class="blog-card-meta">
+            <span class="blog-date">December 22, 2025</span>
+            <span class="blog-read-time">7 min read</span>
+          </div>
+          <p class="blog-card-excerpt">Designing with intention means understanding that every choice matters. From the smallest detail to the overall composition, each element serves a purpose. This essay explores how fashion and digital design share a common language of structure and meaning.</p>
+          <a href="#" class="blog-card-link">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-image">
+          <img src="images/blog-hero.png" alt="Building a Creative Practice" />
+        </div>
+        <div class="blog-card-content">
+          <h2>Building a Creative Practice</h2>
+          <div class="blog-card-meta">
+            <span class="blog-date">December 15, 2025</span>
+            <span class="blog-read-time">6 min read</span>
+          </div>
+          <p class="blog-card-excerpt">A sustainable creative practice isn't built on inspiration alone. It requires systems, rituals, and a commitment to showing up even when the muse is quiet. Here's what I've learned about building habits that stick and projects that matter.</p>
+          <a href="#" class="blog-card-link">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-image">
+          <img src="images/blog-hero.png" alt="Fashion Tech: The Next Frontier" />
+        </div>
+        <div class="blog-card-content">
+          <h2>Fashion Tech: The Next Frontier</h2>
+          <div class="blog-card-meta">
+            <span class="blog-date">December 8, 2025</span>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+          <p class="blog-card-excerpt">The convergence of technology and fashion is reshaping how we design, produce, and consume clothing. From digital textiles to AI-assisted design, the possibilities are endless. Let's explore what this means for the future of the industry.</p>
+          <a href="#" class="blog-card-link">Read More →</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-card-image">
+          <img src="images/blog-hero.png" alt="Designing for Diversity" />
+        </div>
+        <div class="blog-card-content">
+          <h2>Designing for Diversity</h2>
+          <div class="blog-card-meta">
+            <span class="blog-date">December 1, 2025</span>
+            <span class="blog-read-time">6 min read</span>
+          </div>
+          <p class="blog-card-excerpt">Inclusive design isn't an afterthought—it's a fundamental principle that should guide every creative decision. Whether we're designing fashion, interfaces, or experiences, considering diverse bodies, perspectives, and needs makes our work stronger.</p>
+          <a href="#" class="blog-card-link">Read More →</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; <span id="year">2025</span> Daisha Overstreet. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="https://www.threads.net" target="_blank" rel="noopener noreferrer">Threads</a>
+        <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer">Pinterest</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav');
+    
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>
