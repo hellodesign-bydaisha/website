@@ -301,7 +301,6 @@ a {
   .hero-image-container img,
   #slideshow {
     display: block !important;
-    border: none !important;
   }
   
   .hero-title {
