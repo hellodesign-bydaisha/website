@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive Tabbed Interface - Daisha Overstreet</title>
+  <link rel="icon" type="image/png" href="../images/by Daisha favicon.png" />
   <link rel="stylesheet" href="../styles.css">
   <style>
     .project-detail {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem;
+      animation: fadeIn 1.2s ease-in-out;
     }
 
     .project-header {
@@ -56,19 +58,19 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      align-items: center;
     }
 
     .image-section h2 {
       font-size: 1.5rem;
       color: var(--text-primary);
       margin-bottom: 0.5rem;
+      align-self: flex-start;
     }
 
     .image-section img, .image-section video {
       width: 100%;
       height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .back-link {
@@ -100,24 +102,17 @@
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-container">
-      <div class="logo">
-        <a href="../index.html" class="name">Daisha Overstreet</a>
-      </div>
-      <nav class="nav">
-        <a href="../index.html">Home</a>
-        <a href="../blog/post1.html">Blog</a>
-        <a href="../projects.html" class="active">Projects</a>
-        <a href="../index.html#contact">Contact</a>
-      </nav>
-      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+  <!-- Floating Sticky Nav -->
+  <div class="floating-nav">
+    <button class="floating-nav-toggle" id="floatingNavToggle" aria-label="Toggle navigation">☰</button>
+    <div class="floating-nav-menu" id="floatingNavMenu">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
     </div>
-  </header>
+  </div>
 
   <main>
     <div class="project-detail">
-      <a href="../projects.html" class="back-link">← Back to Projects</a>
       
       <div class="project-header">
         <h1>Interactive Tabbed Interface</h1>
@@ -133,7 +128,7 @@
       <div class="project-images">
         <div class="image-section">
           <h2>Function Demo</h2>
-          <video src="../videos/Interactive Tabbed Interface Function Video.mp4" controls autoplay loop muted style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          <video src="../videos/Interactive Tabbed Interface Function Video.mp4" controls autoplay loop muted style="width: 100%;">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -143,34 +138,37 @@
           <img src="../images/Interactive Tabbed Interface.png" alt="Interactive Tabbed Interface Design">
         </div>
       </div>
+
+      <!-- Project Navigation -->
+      <div class="project-nav-buttons">
+        <a href="rebecca-allen.html" class="project-nav-btn">← Back</a>
+        <a href="splashgiving-2022.html" class="project-nav-btn">Next →</a>
+      </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-content">
-      <p>&copy; <span id="year">2025</span> Daisha Overstreet. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a>
-        <a href="https://www.threads.net" target="_blank" rel="noopener noreferrer">Threads</a>
-        <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer">Pinterest</a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-      </div>
-    </div>
+  <footer class="site-footer" style="text-align: center; padding: 2rem; margin-top: 4rem;">
+    <p style="margin: 0; color: #666;">© <span id="year"></span> thoughtful work, in progress by Daisha</p>
   </footer>
 
+  <script src="../script.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Mobile menu toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('.nav');
     
-    if (navToggle) {
-      navToggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-      });
-    }
+    // Floating nav toggle
+    const floatingNavToggle = document.getElementById('floatingNavToggle');
+    const floatingNavMenu = document.getElementById('floatingNavMenu');
+    
+    floatingNavToggle.addEventListener('click', () => {
+      floatingNavMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.floating-nav')) {
+        floatingNavMenu.classList.remove('active');
+      }
+    });
   </script>
 </body>
 </html>

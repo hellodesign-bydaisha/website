@@ -3,52 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Self Brand Profile Technical Sketches - Daisha Overstreet</title>
+  <title>"Daisha is kinda busy" Self Brand Profile and Technical Flats - Daisha Overstreet</title>
+  <link rel="icon" type="image/png" href="../images/by Daisha favicon.png" />
   <link rel="stylesheet" href="../styles.css">
   <style>
     .project-detail {
-      max-width: 1200px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 2rem 1.5rem;
+      animation: fadeIn 1.2s ease-in-out;
     }
 
     .project-header {
-      margin-bottom: 3rem;
-      text-align: center;
+      margin-bottom: 2rem;
     }
 
     .project-header h1 {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       margin-bottom: 1rem;
-      color: var(--text-primary);
+      color: var(--text);
+      font-weight: 600;
     }
 
-    .project-header p {
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-      max-width: 800px;
-      margin: 0 auto;
+    .project-meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .project-description {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 2rem;
     }
 
     .project-tags {
       display: flex;
       gap: 0.5rem;
-      justify-content: center;
-      margin-top: 1rem;
+      margin-bottom: 2rem;
       flex-wrap: wrap;
     }
 
     .tag {
-      background: var(--text-primary);
-      color: white;
-      padding: 0.3rem 0.8rem;
+      background: rgba(100, 181, 255, 0.15);
+      border: 1px solid rgba(100, 181, 255, 0.3);
+      color: var(--text);
+      padding: 0.4rem 0.9rem;
       border-radius: 20px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     .project-images {
       display: grid;
-      gap: 2rem;
+      gap: 3rem;
       margin-top: 3rem;
     }
 
@@ -56,76 +66,75 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      align-items: center;
     }
 
     .image-section h2 {
-      font-size: 1.5rem;
-      color: var(--text-primary);
+      font-size: 1.25rem;
+      color: var(--text);
       margin-bottom: 0.5rem;
+      font-weight: 600;
+      align-self: flex-start;
     }
 
     .image-section img {
       width: 100%;
+      max-width: 700px;
       height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--glass-border);
     }
 
     .back-link {
       display: inline-block;
       margin-bottom: 2rem;
-      color: var(--text-primary);
+      color: var(--accent);
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .back-link:hover {
-      color: var(--text-secondary);
+      transform: translateX(-4px);
     }
 
     @media (max-width: 768px) {
       .project-detail {
-        padding: 1rem;
+        padding: 1.5rem 1rem;
       }
 
       .project-header h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
       }
 
-      .project-header p {
+      .project-description {
         font-size: 1rem;
       }
     }
   </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="header-container">
-      <div class="logo">
-        <a href="../index.html" class="name">Daisha Overstreet</a>
-      </div>
-      <nav class="nav">
-        <a href="../index.html">Home</a>
-        <a href="../blog/post1.html">Blog</a>
-        <a href="../projects.html" class="active">Projects</a>
-        <a href="../index.html#contact">Contact</a>
-      </nav>
-      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+<body class="page-projects">
+  <!-- Floating Sticky Nav -->
+  <div class="floating-nav">
+    <button class="floating-nav-toggle" id="floatingNavToggle" aria-label="Toggle navigation">☰</button>
+    <div class="floating-nav-menu" id="floatingNavMenu">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
     </div>
-  </header>
+  </div>
 
   <main>
     <div class="project-detail">
-      <a href="../projects.html" class="back-link">← Back to Projects</a>
       
       <div class="project-header">
-        <h1>Self Brand Profile Technical Sketches</h1>
-        <p>A comprehensive collection of technical sketches and design explorations showcasing personal brand development through fashion design and garment construction.</p>
+        <h1><em>"Daisha is kinda busy"</em> Self Brand Profile + Technical Flats</h1>
+        <p class="project-meta">2025</p>
         <div class="project-tags">
-          <span class="tag">Fashion Design</span>
-          <span class="tag">Technical Sketches</span>
+          <span class="tag">Technical Flats</span>
+          <span class="tag">Moodboarding</span>
           <span class="tag">Brand Identity</span>
+        </div>
+        <div class="project-description">
+          <p>In this project, I picked my current favorite outfit that directly relates to my style, found image inspiration online (google + pinterest), sketched outfit in Adobe Illustrator, and developed 3-4 colorways for this outfit.</p>
         </div>
       </div>
 
@@ -150,34 +159,37 @@
           <img src="../images/Self Brand BW Sketch.png" alt="Black and White Sketch">
         </div>
       </div>
+
+      <!-- Project Navigation -->
+      <div class="project-nav-buttons">
+        <a href="../projects.html" class="project-nav-btn">← Back</a>
+        <a href="store-trend-forecasting.html" class="project-nav-btn">Next →</a>
+      </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-content">
-      <p>&copy; <span id="year">2025</span> Daisha Overstreet. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a>
-        <a href="https://www.threads.net" target="_blank" rel="noopener noreferrer">Threads</a>
-        <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer">Pinterest</a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-      </div>
-    </div>
+  <footer class="site-footer" style="text-align: center; padding: 2rem; margin-top: 4rem;">
+    <p style="margin: 0; color: #666;">© <span id="year"></span> thoughtful work, in progress by Daisha</p>
   </footer>
 
+  <script src="../script.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Mobile menu toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('.nav');
     
-    if (navToggle) {
-      navToggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-      });
-    }
+    // Floating nav toggle
+    const floatingNavToggle = document.getElementById('floatingNavToggle');
+    const floatingNavMenu = document.getElementById('floatingNavMenu');
+    
+    floatingNavToggle.addEventListener('click', () => {
+      floatingNavMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.floating-nav')) {
+        floatingNavMenu.classList.remove('active');
+      }
+    });
   </script>
 </body>
 </html>

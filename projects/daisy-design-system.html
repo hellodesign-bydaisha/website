@@ -3,54 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Splashgiving 2022 - Daisha Overstreet</title>
+  <title>The Daisy Design System - Daisha Overstreet</title>
   <link rel="icon" type="image/png" href="../images/by Daisha favicon.png" />
   <link rel="stylesheet" href="../styles.css">
   <style>
     .project-detail {
-      max-width: 1200px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 2rem 1.5rem;
       animation: fadeIn 1.2s ease-in-out;
     }
 
     .project-header {
-      margin-bottom: 3rem;
-      text-align: center;
+      margin-bottom: 2rem;
     }
 
     .project-header h1 {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       margin-bottom: 1rem;
-      color: var(--text-primary);
+      color: var(--text);
+      font-weight: 600;
     }
 
-    .project-header p {
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-      max-width: 800px;
-      margin: 0 auto;
+    .project-meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .project-description {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 2rem;
     }
 
     .project-tags {
       display: flex;
       gap: 0.5rem;
-      justify-content: center;
-      margin-top: 1rem;
+      margin-bottom: 2rem;
       flex-wrap: wrap;
     }
 
     .tag {
-      background: var(--text-primary);
-      color: white;
-      padding: 0.3rem 0.8rem;
+      background: rgba(100, 181, 255, 0.15);
+      border: 1px solid rgba(100, 181, 255, 0.3);
+      color: var(--text);
+      padding: 0.4rem 0.9rem;
       border-radius: 20px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     .project-images {
       display: grid;
-      gap: 2rem;
+      gap: 3rem;
       margin-top: 3rem;
     }
 
@@ -62,46 +70,36 @@
     }
 
     .image-section h2 {
-      font-size: 1.5rem;
-      color: var(--text-primary);
+      font-size: 1.25rem;
+      color: var(--text);
       margin-bottom: 0.5rem;
+      font-weight: 600;
       align-self: flex-start;
     }
 
-    .image-section img, .image-section video {
+    .image-section img {
       width: 100%;
+      max-width: 700px;
       height: auto;
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-bottom: 2rem;
-      color: var(--text-primary);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .back-link:hover {
-      color: var(--text-secondary);
+      border: 1px solid #000000;
     }
 
     @media (max-width: 768px) {
       .project-detail {
-        padding: 1rem;
+        padding: 1.5rem 1rem;
       }
 
       .project-header h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
       }
 
-      .project-header p {
+      .project-description {
         font-size: 1rem;
       }
     }
   </style>
 </head>
-<body>
+<body class="page-projects">
   <!-- Floating Sticky Nav -->
   <div class="floating-nav">
     <button class="floating-nav-toggle" id="floatingNavToggle" aria-label="Toggle navigation">☰</button>
@@ -115,34 +113,33 @@
     <div class="project-detail">
       
       <div class="project-header">
-        <h1>Splashgiving 2022</h1>
-        <p>An interactive holiday event landing page designed for the Splash platform, featuring custom animations, festive design elements, and a seamless user experience to celebrate the seasonal gathering.</p>
+        <h1>The Daisy Design System</h1>
+        <p class="project-meta">Personal Branding • 2025</p>
         <div class="project-tags">
-          <span class="tag">Event Design</span>
-          <span class="tag">Web Development</span>
-          <span class="tag">Interactive Design</span>
-          <span class="tag">Animation</span>
+          <span class="tag">Personal Branding</span>
+          <span class="tag">Design System</span>
+        </div>
+        <div class="project-description">
+          <p>A personal branding system built around a cohesive visual language, exploring typography, color, and layout rules for consistent storytelling across platforms.</p>
         </div>
       </div>
 
       <div class="project-images">
         <div class="image-section">
-          <h2>Function Demo</h2>
-          <video src="../videos/Splashgiving 2022 Function Video.mp4" controls autoplay loop muted style="width: 100%;">
-            Your browser does not support the video tag.
-          </video>
+          <h2>Design System Overview</h2>
+          <img src="../images/The Daisy Design System.png" alt="The Daisy Design System">
         </div>
 
         <div class="image-section">
-          <h2>Landing Page Design</h2>
-          <img src="../images/Splashgiving 2022.png" alt="Splashgiving 2022 Landing Page">
+          <h2>Design System Preview</h2>
+          <img src="../images/The Daisy Design System Preview.png" alt="The Daisy Design System Preview">
         </div>
       </div>
 
       <!-- Project Navigation -->
       <div class="project-nav-buttons">
-        <a href="interactive-tabbed-interface.html" class="project-nav-btn">← Back</a>
-        <a href="yoga-dluna.html" class="project-nav-btn">Next →</a>
+        <a href="free-therapy.html" class="project-nav-btn">← Back</a>
+        <a href="#" class="project-nav-btn disabled">Next →</a>
       </div>
     </div>
   </main>
