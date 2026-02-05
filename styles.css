@@ -354,6 +354,12 @@ a {
     width: 100% !important;
     justify-content: center !important;
   }
+  
+  .button-container {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -377,6 +383,12 @@ a {
   .hero-section div > div {
     justify-content: center;
     width: 100% !important;
+  }
+  
+  .button-container {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
   }
   
   .projects-btn {
