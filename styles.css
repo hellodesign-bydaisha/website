@@ -349,6 +349,11 @@ a {
     margin: 0 !important;
     text-align: center !important;
   }
+  
+  .hero-section div > div {
+    width: 100% !important;
+    justify-content: center !important;
+  }
 }
 
 @media (max-width: 480px) {
