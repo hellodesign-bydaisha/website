@@ -3,15 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Tabbed Interface - Daisha Overstreet</title>
+  <title>Interactive Tabbed Interface for <em>Splash Professional Services</em> - Daisha Overstreet</title>
   <link rel="icon" type="image/png" href="../images/by Daisha favicon.png" />
   <link rel="stylesheet" href="../styles.css">
+</head>
+<body style="background: radial-gradient(ellipse at 50% 30%, #f1d0db 0%, transparent 70%), radial-gradient(ellipse at 20% 70%, #e8b0c3 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, #dd89a5 0%, transparent 55%), radial-gradient(ellipse at 65% 20%, #ba124a 0%, transparent 45%), radial-gradient(ellipse at 40% 50%, #d16186 0%, transparent 50%), #f1d0db; background-attachment: fixed;">
+  <!-- Navigation Bar -->
+  <nav style="background: rgba(253, 253, 253, 0.95); border-bottom: 1px solid #000000; padding: 1rem 2rem; display: flex; justify-content: center; gap: 2rem;  margin-bottom: 3rem;">
+    <a href="../index.html" style="color: #000000; text-decoration: none; font-weight: 500; transition: color 0.3s ease;">Home</a>
+    <a href="../about.html" style="color: #000000; text-decoration: none; font-weight: 500; transition: color 0.3s ease;">About</a>
+    <a href="../projects.html" style="color: #000000; text-decoration: none; font-weight: 500; transition: color 0.3s ease;">Projects</a>
+  </nav>
+  
   <style>
     .project-detail {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem;
       animation: fadeIn 1.2s ease-in-out;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.95);
+      
     }
 
     .project-header {
@@ -41,11 +53,111 @@
     }
 
     .tag {
-      background: var(--text-primary);
+      background: #000000;
       color: white;
       padding: 0.3rem 0.8rem;
-      border-radius: 20px;
+      
       font-size: 0.9rem;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 2rem auto;
+      overflow: hidden;
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 0.3s ease;
+      scroll-snap-type: x mandatory;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .carousel-images::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+    }
+
+    .carousel-slide img, .carousel-slide video {
+      width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+      
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      min-width: 10px;
+      min-height: 10px;
+      padding: 0;
+      
+      background: #cccccc;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .carousel-dot.active {
+      background: #000000;
+    }
+
+    .project-nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin: 3rem 0 0;
+      padding: 0;
+      gap: 1rem;
+    }
+
+    .project-nav-btn {
+      padding: 0.75rem 1.5rem;
+      background: #000000;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      
+      
+      font-size: 0.9rem;
+    }
+
+    .project-nav-btn:hover {
+      background: rgba(255, 255, 255, 0.95);
+      color: #000000;
+    }
+
+    .project-nav-btn.disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    @media (max-width: 480px) {
+      .project-nav-btn {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.85rem;
+      }
     }
 
     .project-images {
@@ -101,42 +213,38 @@
     }
   </style>
 </head>
-<body>
-  <!-- Floating Sticky Nav -->
-  <div class="floating-nav">
-    <button class="floating-nav-toggle" id="floatingNavToggle" aria-label="Toggle navigation">☰</button>
-    <div class="floating-nav-menu" id="floatingNavMenu">
-      <a href="../index.html">Home</a>
-      <a href="../projects.html">Projects</a>
-    </div>
-  </div>
-
+<body style="background: linear-gradient(180deg, #E8F4FD 0%, #D4E9F7 50%, #C0DFF5 100%); background-attachment: fixed;">
   <main>
     <div class="project-detail">
       
       <div class="project-header">
-        <h1>Interactive Tabbed Interface</h1>
-        <p>A custom-designed tabbed navigation interface featuring smooth transitions, interactive functionality, and responsive design patterns for enhanced user experience.</p>
-        <div class="project-tags">
-          <span class="tag">UI/UX Design</span>
-          <span class="tag">Web Development</span>
-          <span class="tag">Interactive Design</span>
-          <span class="tag">Frontend</span>
-        </div>
+        <h1>Interactive Tabbed Interface for <em>Splash Professional Services</em></h1>
+        <p class="project-meta">Web Development • 2023</p>
       </div>
 
-      <div class="project-images">
-        <div class="image-section">
-          <h2>Function Demo</h2>
-          <video src="../videos/Interactive Tabbed Interface Function Video.mp4" controls autoplay loop muted style="width: 100%;">
-            Your browser does not support the video tag.
-          </video>
+      <div class="carousel-container">
+        <div class="carousel-images" id="carouselImages">
+          <div class="carousel-slide">
+            <video src="../videos/Interactive Tabbed Interface Function Video.mp4" controls autoplay loop muted style="width: 100%;">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="carousel-slide">
+            <img src="../images/Interactive Tabbed Interface.png" alt="Interactive Tabbed Interface Design">
+          </div>
         </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
 
-        <div class="image-section">
-          <h2>Interface Design</h2>
-          <img src="../images/Interactive Tabbed Interface.png" alt="Interactive Tabbed Interface Design">
-        </div>
+      <div class="project-description">
+        <p>A custom-designed tabbed navigation interface featuring smooth transitions, interactive functionality, and responsive design patterns for enhanced user experience.</p>
+      </div>
+
+      <div class="project-tags">
+        <span class="tag">UI/UX Design</span>
+        <span class="tag">Web Development</span>
+        <span class="tag">Interactive Design</span>
+        <span class="tag">Frontend</span>
       </div>
 
       <!-- Project Navigation -->
@@ -147,27 +255,39 @@
     </div>
   </main>
 
-  <footer class="site-footer" style="text-align: center; padding: 2rem; margin-top: 4rem;">
+  <footer class="site-footer" style="text-align: center; padding: 2rem; ">
     <p style="margin: 0; color: #666;">© <span id="year"></span> thoughtful work, in progress by Daisha</p>
   </footer>
 
   <script src="../script.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    const carouselImages = document.getElementById('carouselImages');
+    const carouselDots = document.getElementById('carouselDots');
+    const slides = carouselImages.querySelectorAll('.carousel-slide');
     
-    // Floating nav toggle
-    const floatingNavToggle = document.getElementById('floatingNavToggle');
-    const floatingNavMenu = document.getElementById('floatingNavMenu');
-    
-    floatingNavToggle.addEventListener('click', () => {
-      floatingNavMenu.classList.toggle('active');
+    // Create dots
+    slides.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.classList.add('carousel-dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        carouselImages.scrollLeft = slides[index].offsetLeft;
+      });
+      carouselDots.appendChild(dot);
     });
     
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.floating-nav')) {
-        floatingNavMenu.classList.remove('active');
-      }
+    // Update active dot on scroll
+    carouselImages.addEventListener('scroll', () => {
+      const scrollLeft = carouselImages.scrollLeft;
+      const slideWidth = slides[0].offsetWidth;
+      const activeIndex = Math.round(scrollLeft / slideWidth);
+      
+      document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === activeIndex);
+      });
     });
   </script>
 </body>
