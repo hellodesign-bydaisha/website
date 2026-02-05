@@ -282,7 +282,7 @@ a {
 
 /* Hero Image Container Desktop Border */
 .hero-image-container {
-  border-left: 2px solid #110b09;
+  /* Border applied directly to img in HTML */
 }
 
 /* Hero Section Responsive Styles */
@@ -294,12 +294,12 @@ a {
   }
   
   .hero-image-container {
-    border: 2px solid #110b09 !important;
     min-height: 400px;
   }
   
   .hero-image-container img {
     display: block !important;
+    border: none !important;
   }
   
   .hero-title {
