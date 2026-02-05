@@ -371,6 +371,7 @@ a {
   
   .hero-section div > div {
     justify-content: center;
+    width: 100% !important;
   }
   
   .projects-btn {
