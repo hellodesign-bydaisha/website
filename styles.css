@@ -297,9 +297,11 @@ a {
     min-height: 400px;
   }
   
-  .hero-image-container img {
+  .hero-image-container img,
+  #slideshow {
     display: block !important;
     border: none !important;
+    border-left: none !important;
   }
   
   .hero-title {
