@@ -107,7 +107,6 @@ a {
   background-color: #313131;
   background-size: cover;
   background-position: top center;
-  }
   aspect-ratio: 16 / 9;
 }
 
@@ -284,10 +283,7 @@ a {
   pointer-events: none;
 }
 
-/* Hero Image Container Desktop Border */
-.hero-image-container {
-  /* Border applied directly to img in HTML */
-}
+/* Hero Image Container Desktop Border - applied directly to img in HTML */
 
 /* Hero Section Responsive Styles */
 @media (max-width: 768px) {
