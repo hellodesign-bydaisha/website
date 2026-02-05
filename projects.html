@@ -9,149 +9,195 @@
 </head>
 <body class="page-projects">
   <!-- Navigation Bar -->
-  <nav style="background: rgba(253, 253, 253, 0.95); border-bottom: 1px solid #000000; padding: 1rem 2rem; display: flex; justify-content: center; gap: 2rem;  margin-bottom: 3rem;">
-    <a href="index.html" style="color: #000000; text-decoration: none; font-weight: 500; transition: color 0.3s ease;">Home</a>
-    <a href="about.html" style="color: #000000; text-decoration: none; font-weight: 500; transition: color 0.3s ease;">About</a>
-    <a href="projects.html" style="color: #000000; text-decoration: none; font-weight: 500; transition: color 0.3s ease; border-bottom: 2px solid #000000;">Projects</a>
+  <nav style="background: #110b09; border-bottom: 1px solid #110b09; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+    <a href="index.html" style="display: flex; align-items: center;">
+      <img src="images/by Daisha favicon.png" alt="By Daisha" style="height: 30px; width: auto;">
+    </a>
+    <a href="projects.html" style="color: #fdfdfd; text-decoration: none; font-weight: 500; transition: color 0.3s ease; border-bottom: 2px solid #fdfdfd;">Projects</a>
   </nav>
+
+  <!-- Hero Section -->
+  <section style="width: 100%; margin: 0; padding: 3rem 0; background: #ccb800; animation: fadeIn 1.5s ease-out;">
+    <div class="hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: stretch; max-width: 1400px; margin: 0 auto; padding: 0 0 0 2rem; border: 2px solid #110b09; background: #fdfdfd;">
+      <div class="hero-text" style="display: flex; flex-direction: column; justify-content: center;">
+        <h1 class="hero-title" style="margin: 0 0 1.5rem 0; font-size: 2.5rem; font-weight: 600; color: #110b09;">Daisha Overstreet</h1>
+        <p style="margin: 0 0 1.5rem 0; font-size: 1rem; line-height: 1.7; color: #110b09;">is a multidisciplinary designer blending fashion, digital experiences, and human-centered systems. She builds interactive websites, visual identities, and garment illustrations with the same precision, moving between silhouettes and screens, prototypes and polish. Her work is rooted in self-directed practice, professional web design, and wellness, shaping thoughtful designs meant to last.</p>
+        <p style="margin: 0; font-size: 1rem; line-height: 1.7; color: #110b09;"><span style="display: inline-flex; align-items: center; gap: 0.5rem;"><span style="display: inline-block; width: 8px; height: 8px; background: #00ff00; border-radius: 50%; animation: pulse 2s ease-in-out infinite;"></span><em>Currently studying Fashion Design and Kinesiology at Austin Community College.</em></span></p>
+      </div>
+      <div style="display: flex; align-items: stretch;">
+        <div class="hero-image-container" style="width: 100%; height: 100%; position: relative; overflow: hidden; border-left: 2px solid #110b09;">
+          <img id="slideshow" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(1.15) contrast(1.2) saturate(1.05);" />
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
   
-  <!-- iOS Home Button -->
+  <style>
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+        padding: 2rem !important;
+      }
+      
+      .hero-text {
+        padding-bottom: 2rem !important;
+      }
+      
+      .hero-image-container {
+        border-left: none !important;
+        border-top: 2px solid #110b09 !important;
+        min-height: 400px;
+      }
+      
+      .hero-title {
+        font-size: 2rem !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-grid {
+        padding: 1.5rem !important;
+      }
+      
+      .hero-title {
+        font-size: 1.75rem !important;
+      }
+      
+      .hero-text p {
+        font-size: 0.9rem !important;
+      }
+    }
+  </style>
 
   <!-- Page Title -->
-  <div class="page-title">
+  <div class="page-title" style="margin-top: 5rem; margin-bottom: 3rem;">
+    <h2 style="text-align: center; font-size: 2rem; font-weight: 600; margin: 0 0 1rem 0;">Multidisciplinary Portfolio</h2>
     <p style="text-align: center; font-style: italic;">A selection of design and development work</p>
   </div>
 
-  <main>
+  <main style="animation: fadeIn 1.5s ease-out 0.3s both;">
     <section class="projects-grid">
-        <div class="project-card locked-card" style="pointer-events: none; opacity: 0.7; position: relative;">
-          <div class="project-image" style="background-image: url('images/The Daisy Design System Preview.png'); background-size: cover; background-position: top center; filter: blur(8px); image-rendering: pixelated;"></div>
-          <!-- Lock Icon Overlay -->
-          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; pointer-events: none; font-size: 4rem; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));">
-            🔒
-          </div>
-        <div class="project-info">
-          <h3><em>The Daisy Design System</em></h3>
-          <p style="font-size: 0.85rem; color: #7a7a7a; margin: 0 0 0.75rem 0;">Comprehensive personal branding and design language.</p>
-          <p class="project-meta" style="font-size: 0.75rem; color: #7a7a7a; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Brand Identity • Present</p>
-          
-        </div>
-      </div>
-
       <a href="projects/self-brand-profile.html" class="project-card">
-        <div class="project-image" style="background-image: url('images/Self Brand Profile.png'); background-size: cover; background-position: top center;"></div>
-        <div class="project-info">
+        <div class="project-image" style="background-image: url('images/Self Brand Profile.png'); background-size: cover; background-position: top center; height: 280px;"></div>
+        <div class="project-info" style="padding: 1rem 2rem; border-top: 2px solid #110b09;">
           <h3><em>"Daisha is kinda busy"</em> Self Brand Profile + Technical Flats</h3>
           <p style="font-size: 0.85rem; color: #7a7a7a; margin: 0 0 0.75rem 0;">Design an outfit inspired by my current style.</p>
-          <p class="project-meta" style="font-size: 0.75rem; color: #7a7a7a; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Fashion Design • 2025</p>
+          <p class="project-meta" style="font-size: 0.75rem; color: #110b09; margin: auto 0 0 0; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.5;">Fashion Design<br>2025</p>
           
         </div>
       </a>
 
       <a href="projects/store-trend-forecasting.html" class="project-card">
-        <div class="project-image" style="background-image: url('images/Seamless Repeat Store Trend Forecasting.png'); background-size: cover; background-position: top center;"></div>
-        <div class="project-info">
+        <div class="project-image" style="background-image: url('images/Seamless Repeat Store Trend Forecasting.png'); background-size: cover; background-position: top center; height: 280px;"></div>
+        <div class="project-info" style="padding: 1rem 2rem; border-top: 2px solid #110b09;">
           <h3><em>"Back to School"</em> Fall 2026 Store Trend Forecasting + Seamless Repeats for Walmart</h3>
           <p style="font-size: 0.85rem; color: #7a7a7a; margin: 0 0 0.75rem 0;">Analyzed retail market trends to determine design directions for consumer-friendly prints.</p>
-          <p class="project-meta" style="font-size: 0.75rem; color: #7a7a7a; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Fashion Design • 2025</p>
+          <p class="project-meta" style="font-size: 0.75rem; color: #110b09; margin: auto 0 0 0; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.5;">Fashion Design<br>2025</p>
           
         </div>
       </a>
 
       <a href="projects/final-project.html" class="project-card">
-        <div class="project-image" style="background-image: url('images/Final Project Moodboard.png'); background-size: cover; background-position: top center;"></div>
-        <div class="project-info">
+        <div class="project-image" style="background-image: url('images/Final Project Moodboard.png'); background-size: cover; background-position: top center; height: 280px;"></div>
+        <div class="project-info" style="padding: 1rem 2rem; border-top: 2px solid #110b09;">
           <h3><em>"Date Night Cutie"</em> Moodboard + Seamless Repeats + Technical Flats</h3>
           <p style="font-size: 0.85rem; color: #7a7a7a; margin: 0 0 0.75rem 0;">Developed a collection inspired by elevated date nights.</p>
-          <p class="project-meta" style="font-size: 0.75rem; color: #7a7a7a; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Fashion Design • 2025</p>
+          <p class="project-meta" style="font-size: 0.75rem; color: #110b09; margin: auto 0 0 0; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.5;">Fashion Design<br>2025</p>
           
         </div>
       </a>
 
       <a href="projects/stripe-landing.html" class="project-card">
-        <div class="project-image" style="background-image: url('images/Stripe Desktop Landing Page.png'); background-size: cover; background-position: top center;"></div>
-        <div class="project-info">
+        <div class="project-image" style="background-image: url('images/Stripe Desktop Landing Page.png'); background-size: cover; background-position: top center; height: 280px;"></div>
+        <div class="project-info" style="padding: 1rem 2rem; border-top: 2px solid #110b09;">
           <h3><em>Stripe</em> Recruiting Event Landing Registration Page</h3>
           <p style="font-size: 0.85rem; color: #7a7a7a; margin: 0 0 0.75rem 0;">Custom theme for Stripe's recruiting team built in Splash.</p>
-          <p class="project-meta" style="font-size: 0.75rem; color: #7a7a7a; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Web Design • 2024</p>
+          <p class="project-meta" style="font-size: 0.75rem; color: #110b09; margin: auto 0 0 0; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.5;">Web Design<br>2024</p>
           
         </div>
       </a>
 
       <a href="projects/block-mock-splash.html" class="project-card">
-        <div class="project-image" style="background-image: url('images/Block Mock Splash Hub Theme Desktop.png'); background-size: cover; background-position: top center;"></div>
-        <div class="project-info">
+        <div class="project-image" style="background-image: url('images/Block Mock Splash Hub Theme Desktop.png'); background-size: cover; background-position: top center; height: 280px;"></div>
+        <div class="project-info" style="padding: 1rem 2rem; border-top: 2px solid #110b09;">
           <h3><em>Block</em> Mock Splash Hub</h3>
           <p style="font-size: 0.85rem; color: #7a7a7a; margin: 0 0 0.75rem 0;">Event hub mockup with a comprehensive style guide.</p>
-          <p class="project-meta" style="font-size: 0.75rem; color: #7a7a7a; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Web Design • 2024</p>
+          <p class="project-meta" style="font-size: 0.75rem; color: #110b09; margin: auto 0 0 0; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.5;">Web Design<br>2024</p>
           
         </div>
       </a>
 
       <a href="projects/interactive-tabbed-interface.html" class="project-card">
-        <div class="project-image" style="padding: 0; overflow: hidden; background: #000;">
+        <div class="project-image" style="padding: 0; overflow: hidden; background: #000; height: 280px;">
           <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: contain; display: block;">
             <source src="videos/Interactive Tabbed Interface Function Video.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="project-info">
+        <div class="project-info" style="padding: 1rem 2rem; border-top: 2px solid #110b09;">
           <h3>Interactive Tabbed Interface for <em>Splash Professional Services</em></h3>
           <p style="font-size: 0.85rem; color: #7a7a7a; margin: 0 0 0.75rem 0;">Custom navigation component with smooth transitions</p>
-          <p class="project-meta" style="font-size: 0.75rem; color: #7a7a7a; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Web Development • 2023</p>
+          <p class="project-meta" style="font-size: 0.75rem; color: #110b09; margin: auto 0 0 0; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.5;">Web Development<br>2023</p>
           
         </div>
       </a>
 
       <a href="projects/quad.html" class="project-card">
-        <div class="project-image" style="background-image: url('images/Quad Desktop Event Registration Template Landing Page.png'); background-size: cover; background-position: top center;"></div>
-        <div class="project-info">
+        <div class="project-image" style="background-image: url('images/Quad Desktop Event Registration Template Landing Page.png'); background-size: cover; background-position: top center; height: 280px;"></div>
+        <div class="project-info" style="padding: 1rem 2rem; border-top: 2px solid #110b09;">
           <h3><em>Quad</em> Event Registration Template</h3>
           <p style="font-size: 0.85rem; color: #7a7a7a; margin: 0 0 0.75rem 0;">Responsive event registration system with email flow built in Splash.</p>
-          <p class="project-meta" style="font-size: 0.75rem; color: #7a7a7a; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Web Design • 2023</p>
+          <p class="project-meta" style="font-size: 0.75rem; color: #110b09; margin: auto 0 0 0; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.5;">Web Design<br>2023</p>
           
         </div>
       </a>
 
       <a href="projects/splashgiving-2022.html" class="project-card">
-        <div class="project-image" style="padding: 0; overflow: hidden; background: #000;">
+        <div class="project-image" style="padding: 0; overflow: hidden; background: #000; height: 280px;">
           <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: contain; display: block;">
             <source src="videos/Splashgiving 2022 Function Video.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="project-info">
+        <div class="project-info" style="padding: 1rem 2rem; border-top: 2px solid #110b09;">
           <h3>Company Retreat Event Registration Page for <em>Splashgiving 2022</em></h3>
           <p style="font-size: 0.85rem; color: #7a7a7a; margin: 0 0 0.75rem 0;">Streamline retreat registration for employees through a clear branded event landing page.</p>
-          <p class="project-meta" style="font-size: 0.75rem; color: #7a7a7a; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Web Design • 2022</p>
+          <p class="project-meta" style="font-size: 0.75rem; color: #110b09; margin: auto 0 0 0; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.5;">Web Design<br>2022</p>
           
         </div>
       </a>
 
       <a href="projects/yoga-dluna.html" class="project-card">
-        <div class="project-image" style="background-image: url('images/Yoga D%27Luna Landing Page.png'); background-size: cover; background-position: top center; background-repeat: no-repeat;"></div>
-        <div class="project-info">
+        <div class="project-image" style="background-image: url('images/Yoga D%27Luna Landing Page.png'); background-size: cover; background-position: top center; height: 280px; background-repeat: no-repeat;"></div>
+        <div class="project-info" style="padding: 1rem 2rem; border-top: 2px solid #110b09;">
           <h3><em>Yoga D'Luna</em> Coming Soon Landing Page</h3>
           <p style="font-size: 0.85rem; color: #7a7a7a; margin: 0 0 0.75rem 0;">Minimalistic brand identity for a yoga instructor.</p>
-          <p class="project-meta" style="font-size: 0.75rem; color: #7a7a7a; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Web Design • 2022</p>
+          <p class="project-meta" style="font-size: 0.75rem; color: #110b09; margin: auto 0 0 0; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.5;">Web Design<br>2022</p>
           
         </div>
       </a>
 
       <a href="projects/rebecca-allen.html" class="project-card">
-        <div class="project-image" style="background-image: url('images/Rebecca Allen Inc., Product Photo 1.png'); background-size: cover; background-position: top center;"></div>
-        <div class="project-info">
+        <div class="project-image" style="background-image: url('images/Rebecca Allen Inc., Product Photo 1.png'); background-size: cover; background-position: top center; height: 280px;"></div>
+        <div class="project-info" style="padding: 1rem 2rem; border-top: 2px solid #110b09;">
           <h3>Instagram Production Artist for <em>Rebecca Allen, Inc.</em></h3>
           <p style="font-size: 0.85rem; color: #7a7a7a; margin: 0 0 0.75rem 0;">Supported the brand's storytelling through consistent Instagram visuals aligned with product marketing.</p>
-          <p class="project-meta" style="font-size: 0.75rem; color: #7a7a7a; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Graphic Design • 2021</p>
+          <p class="project-meta" style="font-size: 0.75rem; color: #110b09; margin: auto 0 0 0; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.5;">Graphic Design<br>2021</p>
           
         </div>
       </a>
 
       <a href="projects/free-therapy.html" class="project-card">
-        <div class="project-image" style="background-image: url('images/Front Cover - 1000 x 1330.png'); background-size: cover; background-position: top center;"></div>
-        <div class="project-info">
+        <div class="project-image" style="background-image: url('images/Front Cover - 1000 x 1330.png'); background-size: cover; background-position: top center; height: 280px;"></div>
+        <div class="project-info" style="padding: 1rem 2rem; border-top: 2px solid #110b09;">
           <h3><em>Free Therapy: Hard to Read Poems for Hard to Read People</em></h3>
           <p style="font-size: 0.85rem; color: #7a7a7a; margin: 0 0 0.75rem 0;">Book design and publishing for contemporary poetry.</p>
-          <p class="project-meta" style="font-size: 0.75rem; color: #7a7a7a; margin: 0; text-transform: uppercase; letter-spacing: 0.08em;">Book Design • 2020</p>
+          <p class="project-meta" style="font-size: 0.75rem; color: #110b09; margin: auto 0 0 0; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.5;">Book Design<br>2020</p>
           
         </div>
       </a>
@@ -165,6 +211,45 @@
   <script src="script.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Slideshow animation
+    const slideshow = document.getElementById('slideshow');
+    const images = [
+      'images/ProfileSlide1.png',
+      'images/ProfileSlide2.png',
+      'images/ProfileSlide3.png',
+      'images/ProfileSlide4.png',
+      'images/ProfileSlide5.png',
+      'images/ProfileSlide6.png',
+      'images/ProfileSlide7.png',
+      'images/ProfileSlide8.png',
+      'images/ProfileSlide9.png',
+      'images/ProfileSlide10.png',
+      'images/ProfileSlide11.png'
+    ];
+    
+    let currentIndex = 0;
+    let direction = 1; // 1 for forward, -1 for backward
+    
+    function updateSlide() {
+      slideshow.src = images[currentIndex];
+      
+      // Move to next slide
+      currentIndex += direction;
+      
+      // Reverse direction at the ends
+      if (currentIndex >= images.length - 1) {
+        direction = -1;
+      } else if (currentIndex <= 0) {
+        direction = 1;
+      }
+    }
+    
+    // Initialize with first image
+    updateSlide();
+    
+    // Change slide every 1 second
+    setInterval(updateSlide, 1000);
   </script>
 </body>
 </html>

@@ -7,12 +7,13 @@
   <link rel="icon" type="image/png" href="../images/by Daisha favicon.png" />
   <link rel="stylesheet" href="../styles.css">
 </head>
-<body style="background: radial-gradient(ellipse at 50% 30%, #f1d0db 0%, transparent 70%), radial-gradient(ellipse at 20% 70%, #e8b0c3 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, #dd89a5 0%, transparent 55%), radial-gradient(ellipse at 65% 20%, #ba124a 0%, transparent 45%), radial-gradient(ellipse at 40% 50%, #d16186 0%, transparent 50%), #f1d0db; background-attachment: fixed;">
+<body style="background: #fdfdfd;">
   <!-- Navigation Bar -->
-  <nav style="background: rgba(253, 253, 253, 0.95); border-bottom: 1px solid #000000; padding: 1rem 2rem; display: flex; justify-content: center; gap: 2rem;  margin-bottom: 3rem;">
-    <a href="../index.html" style="color: #000000; text-decoration: none; font-weight: 500; transition: color 0.3s ease;">Home</a>
-    <a href="../about.html" style="color: #000000; text-decoration: none; font-weight: 500; transition: color 0.3s ease;">About</a>
-    <a href="../projects.html" style="color: #000000; text-decoration: none; font-weight: 500; transition: color 0.3s ease;">Projects</a>
+  <nav style="background: #110b09; border-bottom: 1px solid #110b09; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;  margin-bottom: 3rem;">
+    <a href="../index.html" style="display: flex; align-items: center;">
+      <img src="../images/by Daisha favicon.png" alt="By Daisha" style="height: 30px; width: auto;">
+    </a>
+    <a href="../projects.html" style="color: #fdfdfd; text-decoration: none; font-weight: 500; transition: color 0.3s ease;">Projects</a>
   </nav>
   
   <style>
@@ -22,8 +23,8 @@
       padding: 2rem;
       animation: fadeIn 1.2s ease-in-out;
       text-align: center;
-      background: rgba(255, 255, 255, 0.95);
-      
+
+
     }
 
     .project-header {
@@ -53,7 +54,7 @@
     }
 
     .tag {
-      background: #000000;
+      background: #666666;
       color: white;
       padding: 0.3rem 0.8rem;
       
@@ -65,7 +66,7 @@
       width: 100%;
       max-width: 900px;
       margin: 2rem auto;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .carousel-images {
@@ -95,6 +96,37 @@
       
     }
 
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: #fdfdfd;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 0;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+
+    .carousel-arrow:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-arrow-left {
+      left: -60px;
+    }
+
+    .carousel-arrow-right {
+      right: -60px;
+    }
     .carousel-dots {
       display: flex;
       justify-content: center;
@@ -109,6 +141,7 @@
       min-height: 10px;
       padding: 0;
       
+      border-radius: 50%;
       background: #cccccc;
       border: none;
       cursor: pointer;
@@ -117,7 +150,7 @@
     }
 
     .carousel-dot.active {
-      background: #000000;
+      background: #b3b3b3;
     }
 
     .project-nav-buttons {
@@ -132,19 +165,20 @@
 
     .project-nav-btn {
       padding: 0.75rem 1.5rem;
-      background: #000000;
-      color: #ffffff;
+      background: #110b09;
+      color: #fdfdfd;
       text-decoration: none;
       font-weight: 500;
       transition: all 0.3s ease;
-      
+      border: 1px solid #110b09;
       
       font-size: 0.9rem;
     }
 
     .project-nav-btn:hover {
-      background: rgba(255, 255, 255, 0.95);
-      color: #000000;
+      background: #ccb800;
+      color: #110b09;
+      border: 1px solid #110b09;
     }
 
     .project-nav-btn.disabled {
@@ -211,6 +245,49 @@
         font-size: 1rem;
       }
     }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: #fdfdfd;
+      font-size: 3rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+      font-weight: 300;
+    }
+
+    .carousel-slide img {
+      cursor: zoom-in;
+    }
+
   </style>
 </head>
 <body style="background: linear-gradient(180deg, #E8F4FD 0%, #D4E9F7 50%, #C0DFF5 100%); background-attachment: fixed;">
@@ -223,6 +300,8 @@
       </div>
 
       <div class="carousel-container">
+        <button class="carousel-arrow carousel-arrow-left" id="prevSlide">‹</button>
+        <button class="carousel-arrow carousel-arrow-right" id="nextSlide">›</button>
         <div class="carousel-images" id="carouselImages">
           <div class="carousel-slide">
             <img src="../images/Yoga D'Luna Landing Page.png" alt="Yoga D'Luna Landing Page">
@@ -257,6 +336,14 @@
     <p style="margin: 0; color: #666;">© <span id="year"></span> thoughtful work, in progress by Daisha</p>
   </footer>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <img id="lightboxImg" src="" alt="Enlarged image">
+  </div>
+
+
+
   <script src="../script.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -265,6 +352,9 @@
     const carouselImages = document.getElementById('carouselImages');
     const carouselDots = document.getElementById('carouselDots');
     const slides = carouselImages.querySelectorAll('.carousel-slide');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    let currentIndex = 0;
     
     // Create dots
     slides.forEach((_, index) => {
@@ -273,8 +363,24 @@
       if (index === 0) dot.classList.add('active');
       dot.addEventListener('click', () => {
         carouselImages.scrollLeft = slides[index].offsetLeft;
+        currentIndex = index;
       });
       carouselDots.appendChild(dot);
+    });
+    
+    // Arrow navigation
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        carouselImages.scrollLeft = slides[currentIndex].offsetLeft;
+      }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        carouselImages.scrollLeft = slides[currentIndex].offsetLeft;
+      }
     });
     
     // Update active dot on scroll
@@ -282,11 +388,38 @@
       const scrollLeft = carouselImages.scrollLeft;
       const slideWidth = slides[0].offsetWidth;
       const activeIndex = Math.round(scrollLeft / slideWidth);
+      currentIndex = activeIndex;
       
       document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
         dot.classList.toggle('active', index === activeIndex);
       });
     });
+
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    
+    slides.forEach(slide => {
+      const img = slide.querySelector('img');
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+      });
+    });
+    
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+    
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+      }
+    });
+
   </script>
 </body>
 </html>
