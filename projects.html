@@ -83,7 +83,7 @@
   </div>
 
   <main style="animation: fadeIn 1.5s ease-out 0.3s both;">
-    <section class="projects-grid">
+    <section class="projects-grid preview-mode">
       <a href="projects/self-brand-profile.html" class="project-card">
         <div class="project-image" style="background-image: url('images/Self Brand Profile.png'); background-size: cover; background-position: top center; height: 280px;"></div>
         <div class="project-info" style="padding: 1rem 2rem; border-top: 2px solid #110b09;">
@@ -202,6 +202,10 @@
         </div>
       </a>
     </section>
+    
+    <div id="viewAllBtn" style="text-align: center; margin: 3rem auto 2rem; max-width: 1400px; padding: 0 2rem;">
+      <button onclick="document.querySelector('.projects-grid').classList.remove('preview-mode'); this.parentElement.style.display='none';" class="projects-btn" style="display: inline-block; padding: 0.75rem 2rem; background: #110b09; color: #fdfdfd; text-decoration: none; font-weight: 500; transition: all 0.3s ease; border: 2px solid #110b09; cursor: pointer; font-family: inherit; font-size: 1rem;">View All Projects</button>
+    </div>
   </main>
 
   <footer class="site-footer" style="text-align: center; padding: 2rem;">
